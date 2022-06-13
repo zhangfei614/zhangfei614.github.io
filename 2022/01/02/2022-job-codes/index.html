@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022-job-codes - Fei&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Fei&#039;s Blog"><meta name="msapplication-TileImage" content="/images/avatar.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Fei&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="二叉树 144. 二叉树的前序遍历 使用数组模拟stack时，记得从后面push，pop   94. 二叉树的中序遍历 处理顺序和访问顺序不一致，要先将左孩子全部压栈后才能开始处理节点。  for cur !&amp;#x3D; nil || len(stack) !&amp;#x3D; 0 &amp;amp;#123; if cur !&amp;#x3D; nil &amp;amp;#123;stack &amp;#x3D; append(stack, cur); cur &amp;#x3D; cur.Left&amp;amp;#"><meta property="og:type" content="blog"><meta property="og:title" content="2022-job-codes"><meta property="og:url" content="https://zhangfei614.github.io/2022/01/02/2022-job-codes/"><meta property="og:site_name" content="Fei&#039;s Blog"><meta property="og:description" content="二叉树 144. 二叉树的前序遍历 使用数组模拟stack时，记得从后面push，pop   94. 二叉树的中序遍历 处理顺序和访问顺序不一致，要先将左孩子全部压栈后才能开始处理节点。  for cur !&amp;#x3D; nil || len(stack) !&amp;#x3D; 0 &amp;amp;#123; if cur !&amp;#x3D; nil &amp;amp;#123;stack &amp;#x3D; append(stack, cur); cur &amp;#x3D; cur.Left&amp;amp;#"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhangfei614.github.io/img/og_image.png"><meta property="article:published_time" content="2022-01-02T05:54:14.000Z"><meta property="article:modified_time" content="2022-05-28T15:06:45.951Z"><meta property="article:author" content="Fei Zhang"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zhangfei614.github.io/2022/01/02/2022-job-codes/"},"headline":"2022-job-codes","image":["https://zhangfei614.github.io/img/og_image.png"],"datePublished":"2022-01-02T05:54:14.000Z","dateModified":"2022-05-28T15:06:45.951Z","author":{"@type":"Person","name":"Fei Zhang"},"publisher":{"@type":"Organization","name":"Fei's Blog","logo":{"@type":"ImageObject","url":"https://zhangfei614.github.io/images/avatar.jpg"}},"description":"二叉树 144. 二叉树的前序遍历 使用数组模拟stack时，记得从后面push，pop   94. 二叉树的中序遍历 处理顺序和访问顺序不一致，要先将左孩子全部压栈后才能开始处理节点。  for cur !&#x3D; nil || len(stack) !&#x3D; 0 &amp;#123; if cur !&#x3D; nil &amp;#123;stack &#x3D; append(stack, cur); cur &#x3D; cur.Left&amp;#"}</script><link rel="canonical" href="https://zhangfei614.github.io/2022/01/02/2022-job-codes/"><link rel="icon" href="/images/avatar.jpg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.15.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-9ZG9VSRF00" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-9ZG9VSRF00');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/avatar.jpg" alt="Fei&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-01-02T05:54:14.000Z" title="2022/1/2 13:54:14">2022-01-02</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.951Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Job/">Job</a></span><span class="level-item">10 分钟读完 (大约1476个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">2022-job-codes</h1><div class="content"><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a><ul>
+<li>使用数组模拟stack时，记得从后面push，pop</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a><ul>
+<li>处理顺序和访问顺序不一致，要先将左孩子全部压栈后才能开始处理节点。</li>
+<li><code> for cur != nil || len(stack) != 0 &#123; if cur != nil &#123;stack = append(stack, cur); cur = cur.Left&#125;&#125; else &#123; top = stack.pop(); res = append(res, res.Val); cur = top.Right&#125;</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a><ul>
+<li>要通过一个pre指针记录右子树是否已经处理完成，如果右子树为空||右子树&#x3D;&#x3D;pre，才处理。</li>
+<li>否则将自己重新入栈回去，等待下一次处理。</li>
+<li><code>for cur != nil || len(stack) != 0 &#123;if cur != nil &#123;stack = append(strack,cur); cur = cur.Left&#125;else &#123;node := stack.pop(); if node.Right == nil || node.Right == pre &#123; res = append(res); pre = node; cur = nil&#125;else&#123; stack = append(stack, node); cur = cur.Right&#125;&#125;&#125;</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.html#%E6%80%BB%E7%BB%93">统一迭代法</a><ul>
+<li>通过加入空指针来控制要处理的节点后面，然后来达到对处理节点特殊逻辑的作用。</li>
+<li>后序为例：<code>stack.push(root); for !stack.empty()&#123;node := stack.pop(); if node != nil&#123;stack.push(left,right,node)&#125;else&#123;res = append(res, stack.pop().val())&#125;</code></li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>  
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a><ul>
+<li>size要先读，直接使用append</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/invert-binary-tree/">226. 翻转二叉树</a><ul>
+<li>递归方法：本质就是使用前序遍历的方法，交换左右子树。</li>
+<li>迭代方法：可以在前序、后序、层序三种选择一种，中间的append换成swap</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">101. 对称二叉树</a><ul>
+<li>递归方法：本质是两个前序遍历的配合：&#96;if a &#x3D;&#x3D; nil &amp;&amp; b &#x3D;&#x3D; nil {return true}; if a&#x3D;&#x3D; nil || b &#x3D;&#x3D; nil {return false}; return a.Val &#x3D;&#x3D; b.Val &amp;&amp; check(a.Left, b.Right) &amp;&amp; check(a.Right, b.Left)</li>
+<li>迭代方法：使用前后队列来将需要比对的值，分别append到前和后。也可是使用栈，每次append一对。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">104. 二叉树的最大深度</a><ul>
+<li>递归做法：return root&#x3D;&#x3D; nil ? 0: 1 + math.MaxInt(hight(root.Left), hight(root.Right))</li>
+<li>迭代方法：层次遍历&#x3D;&#x3D;BFS</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/submissions/">111. 二叉树的最小深度</a><ul>
+<li>只有左右子树都不为空的时候，才返回1+min</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/balanced-binary-tree/">110. 平衡二叉树</a><ul>
+<li>如果不平衡，直接返回-1</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-paths/submissions/">257. 二叉树所有路径</a><ul>
+<li>直接使用slice的[:2]避免root节点的特殊处理</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum/submissions/">112. 路径和</a><ul>
+<li>非叶子节点执行左右递归并取或</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii/submissions/">113. 路径和II</a><ul>
+<li>回溯法记录路径</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/submissions/">106. 中序和后序构建二叉树</a><ul>
+<li><code>lib,lie, lpb,lpe := ib, index-1, pb, pb + (index-1-ib)</code></li>
+<li><code>rib,rie, rpb, rpe := index +1, ie, pe-1-(ie-index-1), pe-1</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/submissions/">105. 前序和中序构建二叉树</a><ul>
+<li><code>lpb,lpe,lib,lie := pb+1, pb+1+(index-1-ib), ib, index -1</code></li>
+<li><code>rpb,rpe,rib,rie := pe-(ie-index-1),pe,index+1, ie</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-binary-trees/submissions/">617. 合并二叉树</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-a-binary-search-tree/submissions/">700. 二叉树中的搜索</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/validate-binary-search-tree/submissions/">98. 验证二叉搜索树</a><ul>
+<li>递归要记录pre的值</li>
+<li>非递归可以使用栈来模拟中序遍历，并记录前一个节点。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/submissions/">530. 二叉搜索树的最小绝对差</a><ul>
+<li>和上体基本一样，<code>res := int(^zero&gt;&gt;1)</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-good-leaf-nodes-pairs/submissions/">1530. 好叶子节点对的数量</a><ul>
+<li>利用后续遍历每个节点，返回每个节点到其叶子节点的距离，然后来判断路径和</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/">236. 二叉树的最近公共祖先</a><ul>
+<li>左右子树都要遍历，将找到的节点一路返回。</li>
+<li><code>left := lowestCommonAncestor(root.Left, p, q);right := lowestCommonAncestor(root.Right, p, q) ;if left != nil &amp;&amp; right != nil&#123;return root&#125;;if left == nil &amp;&amp; right != nil&#123;return right&#125;;if left != nil &amp;&amp; right == nil&#123;return left&#125;</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/submissions/">701. 二叉搜索树中的插入操作</a> </li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-node-in-a-bst/submissions/">450. 删除二叉搜索树中的节点</a><ul>
+<li>删除的时候根据具体情况分类，如果左右节点都有，要将右孩子提上去，左孩子放到右树的最左侧。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trim-a-binary-search-tree/submissions/">669. 修剪二叉搜索树</a><ul>
+<li>if root.Val &lt; low {return trimBST(root.Right, low, high)}<br>if root.Val &gt; high {return trimBST(root.Left, low, high)}<br>root.Left &#x3D; trimBST(root.Left, low, high)<br>root.Right &#x3D; trimBST(root.Right, low, high)</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list/submissions/">206. 反转链表</a><ul>
+<li>递归：newHead &#x3D; reverse(head.next); head.next.next &#x3D; head; head.next &#x3D; nil; return newHead</li>
+<li>非递归：虚拟头结点，遍历插入</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/submissions/">108. 将有序数组转换为二叉搜索树</a></li>
+</ul>
+<p>总结：</p>
+<ul>
+<li><p>二叉树尽量使用递归，定义好递归的返回值。</p>
+</li>
+<li><p>公共祖先的问题可以返回一个vector来做。<br>  ·</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2></li>
+<li><p>[63. 不同路径II]</p>
+<ul>
+<li>初始化时记得横竖如果有障碍则没办法向后初始化。<ul>
+<li>for (int i &#x3D; 0; i &lt; m &amp;&amp; obstacleGrid[i][0] &#x3D;&#x3D; 0; i++) dp[i][0] &#x3D; 1;</li>
+</ul>
+</li>
+<li>递归表达式：<ul>
+<li>if (obstacleGrid[i][j] &#x3D;&#x3D; 1) continue;</li>
+<li>dp[i][j] &#x3D; dp[i - 1][j] + dp[i][j - 1];</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[343. 拆分整数]</p>
+<ul>
+<li>for (int j &#x3D; 1; j &lt; i; j++) {<br>curMax &#x3D; Math.max(curMax, Math.max(j * (i - j), j * dp[i - j]));<br>}</li>
+</ul>
+</li>
+<li><p>[96. 不同的二叉搜索树]</p>
+<ul>
+<li>dp[i] +&#x3D; dp[j - 1] * dp[i - j]; ，j-1 为j为头结点左子树节点数量，i-j 为以j为头结点右子树节点数量</li>
+</ul>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>确定dp数组（dp table）以及下标的含义</li>
+<li>确定递推公式</li>
+<li>dp数组如何初始化</li>
+<li>确定遍历顺序</li>
+<li>举例推导dp数组</li>
+</ul>
+</div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/05/20/mlops/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">我眼中的MLOps</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/12/05/2022-job-hunting/"><span class="level-item">2022-job-hunting</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.jpg" alt="Zhang Fei"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Zhang Fei</p><p class="is-size-6 is-block">Golang Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">10</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/zhangfei614"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/zhangfei614"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/DeepLearning/"><span class="level-start"><span class="level-item">DeepLearning</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Job/"><span class="level-start"><span class="level-item">Job</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Reading/"><span class="level-start"><span class="level-item">Reading</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-05-19T18:52:34.000Z">2022-05-20</time></p><p class="title"><a href="/2022/05/20/mlops/">我眼中的MLOps</a></p><p class="categories"><a href="/categories/MLOps/">MLOps</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-02T05:54:14.000Z">2022-01-02</time></p><p class="title"><a href="/2022/01/02/2022-job-codes/">2022-job-codes</a></p><p class="categories"><a href="/categories/Job/">Job</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-05T15:38:01.000Z">2021-12-05</time></p><p class="title"><a href="/2021/12/05/2022-job-hunting/">2022-job-hunting</a></p><p class="categories"><a href="/categories/Job/">Job</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-25T15:13:48.000Z">2021-08-25</time></p><p class="title"><a href="/2021/08/25/reading-list/">2021课外读书记录</a></p><p class="categories"><a href="/categories/Reading/">Reading</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-16T15:47:10.000Z">2021-08-16</time></p><p class="title"><a href="/2021/08/16/seldon-core-intro/">WIP:seldon-core简介</a></p><p class="categories"><a href="/categories/MLOps/">MLOps</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/06/"><span class="level-start"><span class="level-item">六月 2017</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/03/"><span class="level-start"><span class="level-item">三月 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/2021/"><span class="tag">2021</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Algorithms/"><span class="tag">Algorithms</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DeepLearning/"><span class="tag">DeepLearning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Detection/"><span class="tag">Detection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Megvii/"><span class="tag">Megvii</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ModelServing/"><span class="tag">ModelServing</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-B-Tree/"><span class="tag">R-B Tree</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Sort/"><span class="tag">Sort</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/k8s/"><span class="tag">k8s</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/avatar.jpg" alt="Fei&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Fei Zhang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

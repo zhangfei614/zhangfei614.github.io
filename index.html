@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Fei&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Fei&#039;s Blog"><meta name="msapplication-TileImage" content="/images/avatar.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Fei&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Fei&#039;s Blog"><meta property="og:url" content="https://zhangfei614.github.io/"><meta property="og:site_name" content="Fei&#039;s Blog"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhangfei614.github.io/img/og_image.png"><meta property="article:author" content="Fei Zhang"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zhangfei614.github.io"},"headline":"Fei's Blog","image":["https://zhangfei614.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Fei Zhang"},"publisher":{"@type":"Organization","name":"Fei's Blog","logo":{"@type":"ImageObject","url":"https://zhangfei614.github.io/images/avatar.jpg"}},"description":""}</script><link rel="icon" href="/images/avatar.jpg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.15.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-9ZG9VSRF00" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-9ZG9VSRF00');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/avatar.jpg" alt="Fei&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-05-19T18:52:34.000Z" title="2022/5/20 02:52:34">2022-05-20</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.951Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/MLOps/">MLOps</a></span><span class="level-item">1 小时读完 (大约8383个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/05/20/mlops/">我眼中的MLOps</a></h1><div class="content"><ul>
+<li><a href="#%E5%BA%8F">序</a></li>
+<li><a href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF">问题背景</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFmlops">什么是MLOps？</a><ul>
+<li><a href="#%E5%85%83%E7%B4%A0%E8%A7%92%E8%89%B2%E6%B5%81%E7%A8%8B">元素、角色、流程</a></li>
+<li><a href="#%E5%90%8D%E8%AF%8D%E5%AF%B9%E6%AF%94">名词对比</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%80%E6%BA%90%E5%AE%9E%E7%8E%B0">开源实现</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3">部署相关</a><ul>
+<li><a href="#core%E5%B7%A5%E5%85%B7%E9%93%BE%E5%AF%B9%E6%AF%94">Core工具链对比</a></li>
+</ul>
+</li>
+<li><a href="#%E6%97%B7%E8%A7%86%E7%9A%84mlops">旷视的MLOps？</a><ul>
+<li><a href="#%E5%A4%8D%E6%9D%82%E8%83%8C%E6%99%AF">复杂背景</a></li>
+<li><a href="#ipu%E5%9C%A8%E5%81%9A%E5%95%A5">IPU在做啥？</a></li>
+<li><a href="#%E5%85%A8%E6%B5%81%E7%A8%8B">全流程？</a></li>
+</ul>
+</li>
+<li><a href="#mlops-sig">MLOps-Sig</a></li>
+<li><a href="#%E7%BB%88">终</a></li>
+</ul>
+<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>MLOps这个概念最近比较流行，晨光也发了一些<a target="_blank" rel="noopener" href="https://ipu-discourse.megvii-inc.com/t/topic/1549">Link</a>给大家参考。之前在做<a target="_blank" rel="noopener" href="https://ipu-discourse.megvii-inc.com/t/topic/1579/3">Saver</a>和介绍<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=34896780&preview=/34896780/299343248/Model%20Serving.pptx">ModelServing</a>的过程中，查过一些资料，可以整理一下供大家参考。MLOps涵盖的概念比较多，我也是不求甚解，有兴趣可以多了解一些，对于IPU可以在公司内MLOps上做什么也可以多讨论。</p>
+<!-- more --->
+
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p><img src="/images/2022-05-20-mlops/img-2022-05-23-01-14-55.png"><br>大部分介绍MLOps的文章都会引用这张图，出自Google的一篇论文：<a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Hidden Technical Debt in Machine Learning Systems</a><br>核心内容：</p>
+<ul>
+<li>利用机器学习解决问题的完整系统，关于模型训练的代码其实只占很少一部分。</li>
+<li>为了系统中各个模块合作，各类“胶水代码”会有很多反模式设计，很难维护，留下很多隐藏的“技术债”。</li>
+</ul>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111694069"> Hidden Technical Debt in Machine Learning Systems 阅读笔记</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-ops.org/content/motivation"> Why you Might Want to use Machine Learning </a></li>
+</ul>
+<h2 id="什么是MLOps？"><a href="#什么是MLOps？" class="headerlink" title="什么是MLOps？"></a>什么是MLOps？</h2><p><img src="/images/2022-05-20-mlops/img-2022-05-23-01-15-38.png"><br>from <em><a target="_blank" rel="noopener" href="https://ml-ops.org/content/mlops-principles"> MLOps Principles</a></em></p>
+<blockquote>
+<p>顾名思义，MLOps就是机器学习时代的DevOps。它的主要作用就是连接模型构建团队和业务，运维团队，建立起一个标准化的模型开发，部署与运维流程，使得企业组织能更好的利用机器学习的能力来促进业务增长。 from  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/357897337"> 从小作坊到智能中枢: MLOps简介</a></p>
+</blockquote>
+<h3 id="元素、角色、流程"><a href="#元素、角色、流程" class="headerlink" title="元素、角色、流程"></a>元素、角色、流程</h3><p>MLOps与传统Devops最大不同是管理的最基本要素从Code，扩充到了Data&amp;Model&amp;Code，而这三者之间的相互流转一般会牵扯到不同角色。如何利用自动化工具打破角色、组织之前的边界，可持续的交付机器学习能力到用户侧是MLOps要解决的问题。</p>
+<p><strong>元素：</strong><br><img src="/images/2022-05-20-mlops/img-2022-05-23-01-15-48.png"><br><strong>角色：</strong><br><img src="/images/2022-05-20-mlops/img-2022-05-23-01-15-56.png"><br><strong>流程</strong><br><img src="/images/2022-05-20-mlops/img-2022-05-23-01-16-04.png"><br>from <em><a target="_blank" rel="noopener" href="https://martinfowler.com/articles/cd4ml.html"> Continuous Delivery for Machine Learning</a></em></p>
+<h3 id="名词对比"><a href="#名词对比" class="headerlink" title="名词对比"></a>名词对比</h3><p><img src="/images/2022-05-20-mlops/img-2022-05-23-01-16-20.png"></p>
+<blockquote>
+<p><strong>DevOps 更快地交付软件</strong><br>一系列旨在消除开发和运维团队之间障碍的实践，以便更快地构建和部署软件。它通常会被工程团队所采用，包括 DevOps 工程师、基础设施工程师、软件工程师、站点可靠性工程师和数据工程师。<br><strong>DataOps 更快地交付数据</strong><br>一系列旨在提高数据分析质量并缩短分析周期的实践。DataOps 的主要任务包括数据标记、数据测试、数据管道编排、数据版本控制和数据监控。分析和大数据团队是 DataOps 的主要操作者，但是任何生成和使用数据的人都应该采用良好的 DataOps 实践。这包括数据分析师、BI 分析师、数据科学家、数据工程师，有时还包括软件工程师。<br><strong>MLOps 更快地交付机器学习模型</strong><br>一系列设计、构建和管理可重现、可测试和可持续的基于 ML 的软件实践。对于大数据 &#x2F; 机器学习团队，MLOps 包含了大多数 DataOps 的任务以及其他特定于 ML 的任务，例如模型版本控制、测试、验证和监控。<br><strong>AIOps 利用 AI 的功能增强了 DevOps 工具</strong><br>有时人们错误地将 MLOps 称为 AIOps，但它们是完全不同的。以下说明来自 Gartner（高德纳，美国咨询公司）：<br>AIOps 平台利用大数据、现代机器学习以及其他先进的分析技术，直接或间接地增强 IT 运维（监控、自动化和服务台），具有前瞻性、个性化以及动态的洞察力。<br>因此，AIOps 通常是利用 AI 技术来增强服务产品的 DevOps 工具。AWS Cloud Watch 提供的报警和异常检测是 AIOps 的一个很好的例子。</p>
+</blockquote>
+<p><em>from <a target="_blank" rel="noopener" href="https://www.infoq.cn/article/Wqi0WH8ejldPUWl2dLbs"> What the Ops are you talking about?</a></em></p>
+<p><strong>MLOps概念参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ml-ops.org/">https://ml-ops.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MLOps">https://en.wikipedia.org/wiki/MLOps</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=zh-cn"> MLOps：机器学习中的持续交付和自动化流水线</a><ul>
+<li>Google将MLOps流水线按照自动化程度分了3个Level，可以参考。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/services/machine-learning/mlops/#resources">Machine learning operations (MLOps) Resource Center from Azure</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1WB4y1P7Hw"> 吴恩达：从以模型为中心到以数据为中心的AI</a><ul>
+<li>吴恩达同时也有一门关于<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ji4y197pv?spm_id_from=333.999.0.0">MLOps的课程</a>，讲解如何E2E训练、部署、监控模型。</li>
+</ul>
+</li>
+</ul>
+<h2 id="开源实现"><a href="#开源实现" class="headerlink" title="开源实现"></a>开源实现</h2><p>MLOps这个概念说实在的，其实是一个大杂烩，涵盖机器学习全链路的所有工具链。但一般来说，讨论MLOps，可能有主要这两个方向：</p>
+<ul>
+<li>规范流：和DevOps类似，MLOps并不具体指某个单一的系统，而是强调各组织之间合作的规范性。这一部分比较虚，可以参考MLOps设计的一些<a target="_blank" rel="noopener" href="https://ml-ops.org/content/mlops-principles">基本原则</a>和<a target="_blank" rel="noopener" href="https://ml-ops.org/content/mlops-stack-canvas">技术选型指导</a>。</li>
+<li>平台流：在MLOps这个方向，已经有很多开源或者创业团队在做，很多实现了一个统一的平台入口，进行数据、模型、部署的管理。</li>
+</ul>
+<p>在这里简单分享几个MLOps平台案例：<br><strong><a target="_blank" rel="noopener" href="https://www.kubeflow.org/docs/started/architecture/">Kubeflow</a></strong></p>
+<blockquote>
+<p>The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. Our goal is not to recreate other services, but to provide a straightforward way to deploy best-of-breed open-source systems for ML to diverse infrastructures. Anywhere you are running Kubernetes, you should be able to run Kubeflow.</p>
+</blockquote>
+<ul>
+<li>以Google为首，目前star数最多，影响比较大的MLOps的云原生平台。</li>
+<li>在k8s云原生基础上，集成必要的开源组件，来管理模型开发的流程。</li>
+<li>以Operator为核心，来管理不同训练架构在k8s上执行的训练Job。</li>
+</ul>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/allegroai/clearml">ClearML</a></strong></p>
+<blockquote>
+<p>ClearML is a ML&#x2F;DL development and production suite, it contains FOUR main modules:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/allegroai/clearml#clearml-experiment-manager">Experiment Manager</a> - Automagical experiment tracking, environments and results</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/allegroai/clearml-agent">MLOps</a> - Orchestration, Automation &amp; Pipelines solution for ML&#x2F;DL jobs (K8s &#x2F; Cloud &#x2F; bare-metal)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/allegroai/clearml/blob/master/docs/datasets.md">Data-Management</a> - Fully differentiable data management &amp; version control solution on top of object-storage (S3 &#x2F; GS &#x2F; Azure &#x2F; NAS)</li>
+<li><strong>NEW</strong> 🔥 <a target="_blank" rel="noopener" href="https://github.com/allegroai/clearml-serving">Model-Serving</a> 🎉 - <em>cloud-ready</em> Scalable model serving solution!<br>✨ <strong>Deploy new model endpoints in under 5 minutes</strong> ✨<br>💪 includes optimized GPU serving support backed by Nvidia-Triton 🦾<br>📊 <strong>with out-of-the-box Model Monitoring</strong> 😱</li>
+</ul>
+</blockquote>
+<ul>
+<li>看起来不错的开源创业公司，做了实验管理、任务执行、模型服务等模块。</li>
+<li>公司内的Kubebrain貌似尝试接入过ClearML，参考<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=278207933">Kubebrain接入ClearML方案</a>？</li>
+</ul>
+<p><strong>MLOps平台列举</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://about.mlreef.com/blog/global-mlops-and-ml-tools-landscape">Global MLOps and ML tools landscape</a></li>
+<li><a target="_blank" rel="noopener" href="https://thechief.io/c/editorial/top-10-open-source-mlops-tools/">Top 10 Open Source MLOps Tools</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/375745901"> MLOps: 数据编程时代的工具链创业机会</a></li>
+</ul>
+<h2 id="部署相关"><a href="#部署相关" class="headerlink" title="部署相关"></a>部署相关</h2><p>在MLOps流程里的最后阶段: Model Serving&#x2F;Deployment是可以单独拿出来聊一下的，因为这一部分其实和Core的同学应该最为密切了。从模型PPL搭建，封装微服务，部署到目标集群，这些都可以宽泛的认为是ModelServing的一部分。但相对于开源一些ModelServing工具来说我们还是有很多不同，大家可以简单对比一下。</p>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/bentoml/Yatai">Yatai</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1J34y1e7Ys?p=1&amp;share_medium=android&amp;share_plat=android&amp;share_session_id=f58d916e-393c-4423-8418-423ce4267b66&amp;share_source=GENERIC&amp;share_tag=s_i&amp;timestamp=1651273613&amp;unique_k=tE6zzq4">https://www.bilibili.com/video/BV1J34y1e7Ys?p=1&amp;share_medium=android&amp;share_plat=android&amp;share_session_id=f58d916e-393c-4423-8418-423ce4267b66&amp;share_source=GENERIC&amp;share_tag=s_i&amp;timestamp=1651273613&amp;unique_k=tE6zzq4</a></p>
+<p>首先是我们的老朋友管锡鹏大佬目前在一个开源创业团队做的工作：</p>
+<ul>
+<li>bentoml下面有两个子项目：<a target="_blank" rel="noopener" href="https://github.com/bentoml/BentoML">BentoML</a>，<a target="_blank" rel="noopener" href="https://github.com/bentoml/Yatai">Yatai</a><ul>
+<li>BentoML可以通过简单的方法、注解定义，将模型的推理行为对外暴露成RESTFull的接口，并且可以自动攒Batch， 然后和其它基础库封装成一个镜像制品，称之为Bento。</li>
+<li>Yatai提供了简单的UI控制台，将所有模型、Bento制品管理起来，并且可以选择对应版本部署到k8s集群上，并提供对应的日志、监控、跟踪等运维工具。PS：Yatai的界面、功能和MCD如出一辙。</li>
+</ul>
+</li>
+</ul>
+<p><strong><a target="_blank" rel="noopener" href="https://kserve.github.io/website/0.8/">KServe</a></strong></p>
+<ul>
+<li>KServe之前叫KFServing，是Kubeflow生态中的一部分，现在独立项目开发。</li>
+<li>KServe利用的开源技术栈比较多，比如Knative+Istio，之前比较重，现在已经变成可选。</li>
+<li>KServe利用Knative实现了模型服务的自动扩缩容，实现了Serverless的能力。</li>
+<li>KServer为了解决多模型的联动的问题，提了一个新的概念：<a target="_blank" rel="noopener" href="https://kserve.github.io/website/0.8/modelserving/mms/modelmesh/overview/">ModelMesh</a></li>
+</ul>
+<h3 id="Core工具链对比"><a href="#Core工具链对比" class="headerlink" title="Core工具链对比"></a>Core工具链对比</h3><p>如果抛开具体的模型和业务逻辑，Core目前和ModelServing相关的部分组件：</p>
+<ul>
+<li>MegSDK&#x2F;MegFlow，组装模型PPL，并对外暴露最近本的C&#x2F;gRPC接口。  </li>
+<li>Laserd&#x2F;Demod，负责任务调度，中间件封装，平台接入。</li>
+<li>Saver，负责算法服务编排部署。</li>
+<li>Longinus，负责全局流式任务调度。</li>
+</ul>
+<p>相比于开源社区的ModelServing，Core工具链可能未覆盖的地方：</p>
+<ul>
+<li>底层的平台未迁到k8s底座上，不太方便使用开源工具。</li>
+<li>之前一直没有明确的模型、算法对应的registry，不方便做多版本的管理，目前打算放到AADC。</li>
+<li>对模型的可解释性，算法服务的可观测性集成的工具链不多，运维平台包含了一部分功能。</li>
+<li>模型、算法上线的流程比较简单，没有类似模型热加载、灰度上线、自动扩缩容等功能。</li>
+</ul>
+<p>但Core工具链也有独特的地方：</p>
+<ul>
+<li>因为MegEngine的存在，不需关注差异化的训练框架，反而在不同硬件平台上做了抽象。</li>
+<li>在算法运行时上进行优化，适合多模型PPL组装和高性能计算。</li>
+<li>上层流式任务调度比较完善，适合处理视频流或者消息流。</li>
+</ul>
+<p><strong>Model Serving参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.seldon.io/projects/seldon-core/en/stable/workflow/github-readme.html">Seldon Core: Blazing Fast, Industry-Ready ML</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/everything-full-stack/machine-learning-model-serving-overview-c01a6aa3e823"> Machine Learning Model Serving Overview (Seldon Core, KFServing, BentoML, MLFlow)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Serving/blob/v0.8.3/README_CN.md">Paddle Serving</a><ul>
+<li>这个应该是旷视MegEngine生态下，ModelServing部分最直接的竞品。</li>
+</ul>
+</li>
+</ul>
+<h2 id="旷视的MLOps？"><a href="#旷视的MLOps？" class="headerlink" title="旷视的MLOps？"></a>旷视的MLOps？</h2><p>前面的资料里谈到的MLOps大部分都是针对通用的机器学习模型，<strong>相对于旷视这种深耕在计算机视觉领域，并且有很多独特业务场景，对软硬件要求都比较高的深度学习模型，很难有现成通用的MLOps解决方案可以参考</strong>。<br>之前我以为将Data++、Brian++、Core串联起来，就可以认为是个MLOps流程。但从目前的模型发版、算法集成来看，还是有很多手动操作的地方，也需要工程化开发投入很多精力，并不是一个自动化的流程。<br>如果创建一个大一统的MLOps平台，应该也是吃力不讨好的事情，它肯定会破坏现在各角色的工作流程，也很难做到灵活扩展。所以旷视的MLOps大概率可以走规范流，通过让不同系统留足接入空间，利用自动化工具打通各系统交接面，解决在面临复杂背景下快速交付模型和算法的问题。</p>
+<h3 id="复杂背景"><a href="#复杂背景" class="headerlink" title="复杂背景"></a>复杂背景</h3><ul>
+<li><strong>模型耦合</strong>：相比互联网场景下，一个大模型或者几个模型就能拼装成预测服务；旷视最经典的人脸算法也是多达近十个模型组合而成，并且模型的输入输出深度绑定，数据传输效率要求较高。这些模型还是由不同R贡献，这就导致从数据、模型、代码的MLOps流程并不是简单的线性模式，有着复杂的耦合关系。<br>目前SDK组的同学承担了很多关于PPL组装的工作，虽然也做了通过规范定义、简单配置、模型外挂的工作来降低模型的耦合性，使模型替换更顺畅，但类似<a target="_blank" rel="noopener" href="https://github.com/bentoml/bentoctl">bentoctl</a>这种命令行工具或者UI界面，可以在真实环境自动化更换模型、部署算法服务、验证测试集的工具也可以考虑。</li>
+<li><strong>策略定制</strong>：另外一个旷视算法比较大的特色就是，模型的精度固然重要，但面对实际场景或者长尾场景，R更希望通过灵活的策略代码解决问题，这也是算法仓、检索策略仓、聚档策略仓出现的原因。<br>之前的方案是R用Python将这个策略实现一遍，验证完将代码甩过来，Engineers再用C&#x2F;GO实现一遍，然后频繁往复的对策略对分，有时候并不是策略对不上，可能就是因为语言特性、分布式环境就会有差异。<br>这种场景下，R和Engineers以model为边界的界限就不太适用了，本质上大家都要对model+code的质量负责，而limbo&#x2F;megflow就是为了解决这个问题。此时和<a target="_blank" rel="noopener" href="https://github.com/bentoml/BentoML">BentoML</a>类似，limbo&#x2F;megflow提供了搭建模型inference和构建策略PPL的基础工具，R通过直接交付镜像来保证model+code的质量，而Engineers则更多关注硬件平台抽象、数据接入、任务调度、中间件抽象等分布式相关的内容。<br>但这也面临一个问题，是暴露给R的概念越多越好吗？消息队列是抽象一层再暴露吗？如果暴露的太多，是不是Research的心智负担越重？另外开发完一个算法怎么快速部署、验证是恒久的问题，版本管理、打包和授权、可观测和监控怎么办？<br>一个好的PaaS平台不仅要提供合理抽象，还要有完善的工具链来吸引开发者，这一点，公司内的<a target="_blank" rel="noopener" href="https://mcd.mcd.megvii-inc.com/docs/manual/#/">MCD</a>比较成功。但MegFlow+AADC面临的问题更复杂一些，不仅要解决算法运行时的效率和灵活性问题，还要解决算法开发、部署、打包、授权等问题，相信会越来越好。</li>
+<li><strong>角色繁多</strong>：MLOps的流程里一般只定义了三类角色，Data Engineers，Data Scientists，ML Engineers，但因为旷视交付的产品一般是软硬结合，限定特定领域的业务产品，所以一个高精度模型&#x2F;算法真实到达客户现场经手的角色可能更多，包括：框架开发人员、业务开发人员、IPU测试，发版人员，交付人员等。在这种情况下，衡量模型&#x2F;算法的生命周期更加困难，每个人了解到信息都是片面的，全靠PM的口头承诺或者晨光大佬的一篇<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=323351966">wiki</a>来保证。<br>另外，这样容易产生两个问题：一是上游对结果无感知：比如R发了个模型发版邮件就结束了，这个模型被集成在什么megsdk版本？什么时候给到业务用？部署了多少个现场？模型运行效果如何？另一个问题是下游对版本很被动：比如对交付同学，可以查询到现在R正在酝酿发版的有哪些吗？Core当前集成的版本是哪个？有哪些检测模型效果更好，我可以无缝换着试试？<br>当然这两个问题也有可能是我YY的，但总得来说如何有效的衡量模型和算法的Efficiency和Transparency是无论哪种MLOps都要考虑的问题。</li>
+<li><strong>环境割裂</strong>：相比互联网场景下，区分开发测试、线上生产的环境，或者全托管到云厂商的环境，旷视模型生成、部署的环境我认为是相当割裂的。数据的管理、模型训练在公司内相对封闭的Brain++，模型的工程化、集成测试是在公司内裸机器上，最终部署的环境又是客户自己的私有化集群。客户侧私有化环境是和产品绑定的，公司内两个独立的环境也确实能保护数据、模型的安全，但割裂的训练、工程化和推理环境也确实给MLOps的流程带来挑战。<ul>
+<li>首先是<strong>资源相互访问受限</strong>，先不提工程测试环境不像kubebrain一样统一资源管理和调度，两者底层计算、存储资源也无法相互融合，限制了整个公司的资源利用率。这一部分，恩哥之前有过一个<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=235939318">构想</a>，即使资源的不统一，技术栈上也可以尽量接近。当然，这一部分可能和MLOps关系不太大，应该是底层infra团队可能需要考虑的事情。但在MLOps这个层面，两个环境的数据、模型、代码相互访问受限，也会导致类似下模型&#x2F;数据集要登入Brian++；开发limbo在brain++，测试limbo则需要在工程化环境；Brain++上部署不起来Core等问题。</li>
+<li>然后是<strong>系统边疆感较强，缺少跨系统的CI&#x2F;CD</strong>。因为上诉资源访问受限，再加上部分、角色的束缚，大家更倾向于在各个系统内部建设自动化部署、测试、版本管理的工具链，尽量避免系统间的联动。</li>
+<li>最后则是<strong>很难形成闭环逻辑</strong>，如果说公司内部的训练和工程化通过很hack的手段总是可以互通，客户私有化的环境则很难使MLOps流程形成闭环，让大家忽略模型性能和效果的监控。一方面因为用户数据安全的要求，数据回流很困难；另一方面，模型和算法的模型效果取决于用户的行为，但CBG&#x2F;EBG并不是2C面向大量用户行为的产品，用户反馈的误报、漏报数量不多，参考意义有限。</li>
+</ul>
+</li>
+</ul>
+<p>关于这一部分内容比较啰嗦，也比较偏主观，可能也不太正确，如果你耐心看完，给你点个赞。<br>而且旷视在算法落地面临的挑战可能远不止这些，大家有关于整个流程不够自动化、不够方便易用的点都可以讨论，也为未来设计MLOps流程的同学多参考。</p>
+<h3 id="IPU在做啥？"><a href="#IPU在做啥？" class="headerlink" title="IPU在做啥？"></a>IPU在做啥？</h3><p>目前从我了解到内容，IPU关于MLOps流程的建设主要集中在两个平台：<a target="_blank" rel="noopener" href="https://algo-center-doc.mcd.megvii-inc.com/overview/AADC">AADC</a>、<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=344069199">AI-PaaS</a> </p>
+<ul>
+<li>AADC衔接了公司内的模型训练环境和算法工程化环境，产出是符合规范、可被部署的算法包。</li>
+<li>AI-PaaS衔接了公司内的算法工程化环境和实际部署环境，负责模型、算法的部署以及后续监控、可观测性。</li>
+</ul>
+<p>我只是简单介绍一下，如果有什么遗漏或者错误的地方，可以由对应的研发或者产品再补充一下。 @liujiashuo , @yangkai02 </p>
+<p><strong><a target="_blank" rel="noopener" href="https://dev.bistro.sh/">AADC(Algo Application Development Center)</a></strong></p>
+<ul>
+<li>用Gitops管理算法的技术spec信息：algo.yaml, project.json, e2etest.json等。</li>
+<li>集成CI&#x2F;CD的工具，来减少算法构建、授权、测试、发布的手动操作：<ul>
+<li>MegFlow Pack CI: 协助算法开发者将model+code组装成最基本算法制品：image 或者 so，并对外保留规范化的接口：glider.proto&#x2F;megflow.h</li>
+<li>Auth &amp; Encrpt CI: 完成基础制品的授权和加密工作。</li>
+<li>Test CI: 对接QA的测试平台，触发算法仓基础单元测试或者e2e测试。</li>
+<li>Export CI: 发布完备的算法包，无需交付自行手动打包。</li>
+</ul>
+</li>
+<li>公司内算法工程化开发、测试集群统一管理<ul>
+<li>指定集群依托AI-PaaS部署算法，用于开发验证。</li>
+<li>集群资源监控，闲时资源利用，最大化利用集群资源。</li>
+</ul>
+</li>
+<li>公司内算法商城中心<ul>
+<li>已发布算法所有版本管理，历史追踪。</li>
+<li>算法交付审计，统计面向不同BG&#x2F;项目的算法交付情况。</li>
+</ul>
+</li>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://codimd.mcd.megvii-inc.com/z4E0e0x9QMm4DIp_empdMQ">https://codimd.mcd.megvii-inc.com/z4E0e0x9QMm4DIp_empdMQ</a></li>
+</ul>
+</li>
+</ul>
+<p><strong><a target="_blank" rel="noopener" href="https://ai-paas.mcd.megvii-inc.com/docs/Home">AI-PaaS</a></strong></p>
+<ul>
+<li>现场算法仓库中心<ul>
+<li>算法包的上架、授权和激活相关操作。</li>
+</ul>
+</li>
+<li>云-边计算资源管理，算法下发</li>
+<li>流式任务创建和调度</li>
+<li>算法产生的结构化数据汇聚和分发</li>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/display/IPU/CEP-51%3A+AI-PaaS">CEP-51: AI-PaaS</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="全流程？"><a href="#全流程？" class="headerlink" title="全流程？"></a>全流程？</h3><p>如果是将MLOps的全流程Run起来，肯定只有IPU的两个平台是不够的。最近翻wiki，也看到上下游部门在做一些事情，可以简单参考一下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=305922998">AIS</a><ul>
+<li>这一部分，我也觉得比较绕，去年我理解的AIS是Brain++的单独商业版本，但目前好像分了三个版本：AIS公有版，AIS内部版，AIS-Lite？</li>
+<li>其中AIS对内版的算法量产模块，应该是将R算法量产的工具链集成到了AIS内部，然后面向AIT(AI训练师)这个角色，协助他们快速生产和模型。</li>
+<li>AIS的其实覆盖了从数据收集、快速标注、自动训练、模型管理、模型部署整个流程的，但它目前ModelServing这一块应该只是针对单个模型的，和大部分MLOps的开源实现很像。而交付给CBG&#x2F;EBG的算法，大部分都是以PPL+策略代码为主的算法，所以仍需要AADC+AI-PaaS。</li>
+<li>算法量产和AIS的核心目标：<code>KR1：完成CBG/EBG/大项目部等BG的主线算法生产标准化，使用AIS完成模型或PPL生产，覆盖率达到50%以上，AIT团队能够完成50%主线业务的发版和维护承接工作。</code></li>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=329558826">2022 算法量产 OKR</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/display/APUBIZ/2022-Q1+QBR?preview=/351956020/351956433/2022Q1%20QBR%20%E7%AE%97%E6%B3%95%E9%87%8F%E4%BA%A7.pptx">2022Q1 QBR  算法量产.pptx</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=279664994"> R和AIS合作研发流程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=315264368">ADS(Auto Deploy Service)</a><ul>
+<li>Engine组为了解决不同硬件平台算子的差异，提供给R协助将模型针对硬件选型进行转换的服务。</li>
+<li>将模型转换后，需要配合<a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/display/brainuser/MPP">MMP</a>+MegEngine-Lite才能在硬件平台上运行，目前看MegFlow底层应该是依赖了这两个基础库，完成了在MC40芯片上嵌入式算法仓的实验工作。</li>
+<li>参考链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=346921120">ADS 设计文档</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=356290494">MDP(Megvii Delivery Platform)</a><ul>
+<li>这个可能和MLOps本身没有多大关系，但如果我们希望将上述这些系统都能部署在k8s底座上，包括私有化版本的AIS，AI-PaaS，甚至悟空这样的业务产品，则需要一个解决方案交付流程。</li>
+<li>MDP是参照阿里的<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/193132.html">ADP</a>，根据旷视特色自己设计的一套云原生解决方案交付流程。</li>
+</ul>
+</li>
+</ul>
+<p>综合上面所有的系统，我们其实可以大概组装出旷视在建设的MLOps流程：</p>
+<p><img src="/images/2022-05-20-mlops/img-2022-05-23-01-17-46.png"><br>这个也是基于xxr的图，自己脑补的，有什么问题都可以指正。另外这些系统可能和恩哥都有点关系，有啥问题也可以多和恩哥聊，抱紧恩哥大腿。将这些系统组合起来，可以发现，如果列举的功能模块都比较完善的话，有没有可能达到一个我们理想的MLOps流程：</p>
+<p><strong>对一个大致料了解深度学习是什么，会一点Python的同学，姑且我们也称为AI训练师。在面临一个特定的算法问题时：</strong><br><strong>- 他不需要了解业界最好的模型结构是什么？ -&gt; AIS&#x2F;算法量产&#x2F;snapx</strong><br><strong>- 他不需要了解最终跑的硬件平台是什么？ -&gt; ADS&#x2F;MMP</strong><br><strong>- 他不需要了解怎么搭建高性能的InferenceServer？ -&gt; MegFlow</strong><br><strong>- 他不需要了解保护代码和模型，怎么打包？ -&gt; AADC</strong><br><strong>- 他不需要了解视频流怎么接入、任务调度、扩缩容、k8s？ -&gt; AI-PaaS</strong></p>
+<p><strong>他可以不用写任何胶水代码，不用自己搭CI&#x2F;CD，只需要在上诉四个系统：AIS-&gt;ADS-&gt;AADC-&gt;AI-PaaS的UI界面上点来点去，就可以一个人(或者加一个交付) 将一个高效的、经过验证的、可产品化的模型&#x2F;算法部署到业务侧。在整个过程中，不需要高级研究员、框架开发、工程化开发、QA等同学的介入，最大程度地达到自动化流程。</strong></p>
+<h2 id="MLOps-Sig"><a href="#MLOps-Sig" class="headerlink" title="MLOps-Sig"></a>MLOps-Sig</h2><p>前面提到，走规范流的MLOps并不是强调建立一个统一大平台入口，将所有关于数据集、模型、算法、部署的管理都放进去，而是更注重组织间的规范合作，业务流程，自动化水平。这显然靠单个平台的开发者推广是很难的，肯定是希望更多的同学尽量参与，不仅是研发，包括PM、测试等同学。这样大家对全景有个概念，后面开发相关工具的时候就可以有参考，慢慢地靠拢到一个流程。<br>那怎么样让大家在一个地方交流呢？最近，罗少和恩哥应该会组织一些sig小组来让更多感兴趣的同学参与到类似MLOps，DevOps，DataOps的讨论当中。目前Sigs已经成为开源社区管理特定主题的方法，详细可以参考<a target="_blank" rel="noopener" href="https://github.com/kubernetes/community/blob/master/governance.md#sigs">k8s-sigs</a>。虽然我没做过啥开源社区贡献，比较low，但是如果后续有mlops-sig开展起来，我也想提供一些建议：</p>
+<ul>
+<li><strong>用Git管理文档</strong>：sig里面比较重要的就是管理大家的共识，包括：讨论主题、Feature&amp;Roadmap、架构图、日常同步章程、术语和规范、主席和成员等等，但不适宜放一些开发记录、bug讨论等内容。用Git管理则可以记录历史变更，提倡每个人都可以进行讨论和更改架构。</li>
+<li><strong>上下游的边界</strong>：sig小组覆盖完整上下游部门肯定是大家希望见到的，但无论怎样，了解上下游部门在做什么都是必要的。一方面，定义清楚各系统的边界面，共同维护数据规范，比如：模型打包格式、Megflow算法仓specs、算法包打包格式、任务创建格式、算法事件格式等，可以让开发的系统不耦合在一起，也不易出现扒接口的情况。另一方面，了解上下游实现的细节，多和其它部门同学聊天，多翻其它部门wiki，可以让大家对整体架构有更清晰的认识。其实，画上面那个图的时候，我也是比较虚的，只是描述了大致的功能流程；如果后面sig小组成立，可以细的了解上下游部门的实现，绘制更完整的模块架构图。</li>
+<li><strong>UI界面易接受</strong>：说实在的，目前应用比较广的两个平台性产品：Devops 和 MCD，在界面易用性其实都很不错，主要是因为它们的开发者天伟和锡鹏都来自豆瓣，对前端全栈开发都比较熟。平台开发后，推广使用阶段一般都可以提供三种方式：ctl工具，api接口文档，Dashboard。而Dashboard相比较而言，更容易体现一个用户的使用流程，完成用户故事；也能吸引大家随便点点，反馈更多问题。这也是core-ui虽然很简单，也吸引很多交付使用的原因。所以这也就要求PM花时间在原型图设计，研发在前端界面上求自己或者求他人。</li>
+<li><strong>云原生与Infra</strong>：其实MLOps流程和云原生并没有直接的联系，即使是在k8s流行之前，传统的机器学习也可以走MLOps流程。但云原生相关的技术大大减少重复造轮子的工作量，也能统一资源管理，减少资源浪费。目前看好像只有AI-PaaS还不能完全部署在k8s底座上面，后续可以考虑。另外，平台开发中可能用到的：pipeline、GPU虚拟化、边端集群管理、流量管理、Serverless、容器调度，都可以联系Infra团队来提供对应的能力，而上层平台则更foucus在抽象的合理性、功能的易用性。</li>
+<li><strong>关注开源社区</strong>：前面提到，无论是大的云厂商，还是一些创业公司都在做MLOps。关注一些开源项目，一方面可以了解一些新的技术和概念，扩充自己的知识面，把一些优先的想法引入到mlops-sig中；另一方面，因为旷视是深耕在视觉领域，业务大部分也是2B，所以如果对外向技术相关的人员解释我们的业务流更困难一些，但如果用一些开源的概念做类比，就比较顺畅一些，比较大家本质解决的问题是类似的。</li>
+</ul>
+<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2><p>好了！两篇关于MLOps的介绍就到此结束了。文字表达上可能比较琐碎，但也总归融入了一些我的想法。</p>
+<p>无论后面大家是做MLOps还是谈论MLOps，如果这两篇文章能帮助到大家，就万分荣幸了！谢谢大家！ </p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-01-02T05:54:14.000Z" title="2022/1/2 13:54:14">2022-01-02</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.951Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Job/">Job</a></span><span class="level-item">10 分钟读完 (大约1476个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/01/02/2022-job-codes/">2022-job-codes</a></h1><div class="content"><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a><ul>
+<li>使用数组模拟stack时，记得从后面push，pop</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a><ul>
+<li>处理顺序和访问顺序不一致，要先将左孩子全部压栈后才能开始处理节点。</li>
+<li><code> for cur != nil || len(stack) != 0 &#123; if cur != nil &#123;stack = append(stack, cur); cur = cur.Left&#125;&#125; else &#123; top = stack.pop(); res = append(res, res.Val); cur = top.Right&#125;</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a><ul>
+<li>要通过一个pre指针记录右子树是否已经处理完成，如果右子树为空||右子树&#x3D;&#x3D;pre，才处理。</li>
+<li>否则将自己重新入栈回去，等待下一次处理。</li>
+<li><code>for cur != nil || len(stack) != 0 &#123;if cur != nil &#123;stack = append(strack,cur); cur = cur.Left&#125;else &#123;node := stack.pop(); if node.Right == nil || node.Right == pre &#123; res = append(res); pre = node; cur = nil&#125;else&#123; stack = append(stack, node); cur = cur.Right&#125;&#125;&#125;</code></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.html#%E6%80%BB%E7%BB%93">统一迭代法</a><ul>
+<li>通过加入空指针来控制要处理的节点后面，然后来达到对处理节点特殊逻辑的作用。</li>
+<li>后序为例：<code>stack.push(root); for !stack.empty()&#123;node := stack.pop(); if node != nil&#123;stack.push(left,right,node)&#125;else&#123;res = append(res, stack.pop().val())&#125;</code></li>
+</ul>
+</li>
+</ul></div><a class="article-more button is-small is-size-7" href="/2022/01/02/2022-job-codes/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-12-05T15:38:01.000Z" title="2021/12/5 23:38:01">2021-12-05</time>发表</span><span class="level-item"><time dateTime="2022-06-13T02:24:22.098Z" title="2022/6/13 10:24:22">2022-06-13</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Job/">Job</a></span><span class="level-item">4 分钟读完 (大约542个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/12/05/2022-job-hunting/">2022-job-hunting</a></h1><div class="content"><h2 id="技能汇总"><a href="#技能汇总" class="headerlink" title="技能汇总"></a>技能汇总</h2><h4 id="viper"><a href="#viper" class="headerlink" title="viper"></a>viper</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/spf13/viper">Viper</a>是一个配置阶级方案，包括云原生12-Factors应用。支持各种类型的配置格式，可以解决单个应用程序的配置需求。</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904051369312264">Go 每日一库之 viper</a><br>常见问题：</li>
+<li>Viper的主要作用？你们的项目是怎么使用Viper的？</li>
+</ul>
+<h4 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149886027">etcd调优</a></li>
+<li><a target="_blank" rel="noopener" href="https://etcd.io/docs/v3.5/metrics/">etcd metrics</a></li>
+<li><a target="_blank" rel="noopener" href="https://etcd.io/docs/v3.5/tuning/">etcd tunning</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000040582989">etcd的watch机制怎么实现的</a></li>
+</ul></div><a class="article-more button is-small is-size-7" href="/2021/12/05/2022-job-hunting/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-08-25T15:13:48.000Z" title="2021/8/25 23:13:48">2021-08-25</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.950Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Reading/">Reading</a></span><span class="level-item">19 分钟读完 (大约2800个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/08/25/reading-list/">2021课外读书记录</a></h1><div class="content"><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><!-- toc -->
+</br>
+
+<h2 id="看"><a href="#看" class="headerlink" title="看"></a>看</h2><h3 id="《影响商业的50本书》"><a href="#《影响商业的50本书》" class="headerlink" title="《影响商业的50本书》"></a>《影响商业的50本书》</h3><h3 id="《务实程序员的修炼之道》"><a href="#《务实程序员的修炼之道》" class="headerlink" title="《务实程序员的修炼之道》"></a>《务实程序员的修炼之道》</h3><h2 id="听"><a href="#听" class="headerlink" title="听"></a>听</h2><h3 id="《乔布斯传》"><a href="#《乔布斯传》" class="headerlink" title="《乔布斯传》"></a>《乔布斯传》</h3><p>07.**</p>
+<ul>
+<li>乔布斯在少年时期就得到父母的全力支持。</li>
+<li>乔布斯喜好禅修并沉迷于素食。</li>
+<li>乔布斯具有现实扭曲力场，创造了伟大的瞬间。</li>
+<li>先后：麦金塔，Next，皮克斯，iPod，iPhone，iPad，iMac，AppleStore</li>
+<li>对软硬一体，科学与艺术融合等持续追逐。</li>
+<li>投入产品的精力和偏执无语伦比。</li>
+</ul></div><a class="article-more button is-small is-size-7" href="/2021/08/25/reading-list/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-08-16T15:47:10.000Z" title="2021/8/16 23:47:10">2021-08-16</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.950Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/MLOps/">MLOps</a></span><span class="level-item">1 分钟读完 (大约170个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/08/16/seldon-core-intro/">WIP:seldon-core简介</a></h1><div class="content"><h3 id="部署minikube-amp-istio-amp-seldon-core"><a href="#部署minikube-amp-istio-amp-seldon-core" class="headerlink" title="部署minikube &amp; istio &amp; seldon-core"></a>部署minikube &amp; istio &amp; seldon-core</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装istio</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#更改istio为NodePort方式</span></span><br><span class="line"> kubectl patch service istio-ingressgateway -n istio-system -p <span class="string">&#x27;&#123;&quot;spec&quot;:&#123;&quot;type&quot;:&quot;NodePort&quot;&#125;&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#tmux开启istio-ingressgateway的port-forward</span></span><br><span class="line">kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 7080:80</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装seldon-core</span></span><br><span class="line"><span class="comment">#创建namespace</span></span><br><span class="line">kubectl create namespace seldon-system</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装使用istio的seldon-core</span></span><br><span class="line">helm install seldon-core seldon-core-operator \</span><br><span class="line">    --repo https://storage.googleapis.com/seldon-charts \</span><br><span class="line">    --<span class="built_in">set</span> usageMetrics.enabled=<span class="literal">true</span> \</span><br><span class="line">    --namespace seldon-system \</span><br><span class="line">    --<span class="built_in">set</span> istio.enabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#部署模型</span></span><br><span class="line">kubectl create namespace seldon</span><br><span class="line">kubectl apply -f - &lt;&lt; <span class="string">END</span></span><br><span class="line"><span class="string">apiVersion: machinelearning.seldon.io/v1</span></span><br><span class="line"><span class="string">kind: SeldonDeployment</span></span><br><span class="line"><span class="string">metadata:</span></span><br><span class="line"><span class="string">  name: iris-model</span></span><br><span class="line"><span class="string">  namespace: seldon</span></span><br><span class="line"><span class="string">spec:</span></span><br><span class="line"><span class="string">  name: iris</span></span><br><span class="line"><span class="string">  predictors:</span></span><br><span class="line"><span class="string">  - graph:</span></span><br><span class="line"><span class="string">      implementation: SKLEARN_SERVER</span></span><br><span class="line"><span class="string">      modelUri: gs://seldon-models/v1.10.0-dev/sklearn/iris</span></span><br><span class="line"><span class="string">      name: classifier</span></span><br><span class="line"><span class="string">    name: default</span></span><br><span class="line"><span class="string">    replicas: 1</span></span><br><span class="line"><span class="string">END</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#访问</span></span><br><span class="line">http://10.122.101.60:7080/seldon/seldon/iris-model/api/v1.0/doc/<span class="comment">#/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/52454bd8f516">istio 1.8.2安装及可观测性配置</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-08-12T00:19:00.000Z" title="2021/8/12 08:19:00">2021-08-12</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.950Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/DeepLearning/">DeepLearning</a></span><span class="level-item">2 分钟读完 (大约365个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/08/12/pytorch-detection-reading-note/">WIP:《深度学习之PyTorch物体检测实战》笔记</a></h1><div class="content"><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><p>Tensor:</p>
+<ul>
+<li>grad: 对应梯度，类型为Tensor，维度相同。</li>
+<li>grad_fn: 指向的function对象，经历了怎样的操作。</li>
+<li>backword()：<ul>
+<li>动态图特性，每次前向传播从头开始构建计算图。</li>
+<li>grac_variables，根节点导数&#x3D;&#x3D;根节点权重系数。</li>
+<li>retain_graph，多个输出反向求导设置为True。</li>
+</ul>
+</li>
+</ul>
+<p>torch.nn:</p>
+<ul>
+<li>nn.Module:神经网络类。</li>
+<li>nn.Parameter:默认需要求导的参数。</li>
+<li>forward():定义类的前向传播。</li>
+<li>nn.functional:不需要进行参数学习的层。</li>
+<li>nn.Sequential():快速搭建模型各层。</li>
+<li>nn.optim: 优化算法，SGD，Adam，Adagrad等</li>
+</ul>
+<!-- more --->
+
+<p>神经网络基本组成：</p>
+<ul>
+<li>卷积层：提取数据特征，根据卷积核扫描矩阵。</li>
+<li>激活函数：非线性函数表达复杂空间。<ul>
+<li>sigmod: 适合二分类，计算量大，梯度小时。</li>
+<li>ReLU：计算简短，收敛快，但负区域输入值都为0。</li>
+<li>Leaky ReLU: 负区域赋予很小的权重。</li>
+<li>softmax：多分类使用。</li>
+</ul>
+</li>
+<li>池化层：降低特征图的参数量，提升计算速度，增加感受野，比如：Max Pooling，Average Pooling。</li>
+<li>Dropout层：<ul>
+<li>参数过多而训练样本较少，模型容易产生过拟合现象。</li>
+<li>在训练时，每个神经元以概率p保留，即以概率 1-p 的概率停止工作。</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-06-13T07:12:22.000Z" title="2017/6/13 15:12:22">2017-06-13</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.952Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Algorithms/">Algorithms</a></span><span class="level-item">37 分钟读完 (大约5600个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/06/13/Red-Black-Tree/">红黑树详解</a></h1><div class="content"><h4 id="红黑树定义"><a href="#红黑树定义" class="headerlink" title="红黑树定义"></a>红黑树定义</h4><p>红黑树一种特殊的二叉查找树，在多种语言的多种数据结构中都有实现，查询效率较高。其特性是：</p>
+<ul>
+<li>每个节点或者黑色，或者是红色。</li>
+<li>根节点是黑色。</li>
+<li>每个叶子结点（NIL）是黑色。</li>
+<li>如果一个结点是红色，它的子节点必须是黑色。</li>
+<li>从一个结点到该节点的子孙叶子结点的所有路径上包含相同数目的黑色结点。（确保没有一条路径会比其他路径长出两倍，接近于平衡二叉树。）</li>
+</ul>
+<p>![Alt text](&#x2F;images&#x2F;Red-Black Tree&#x2F;1490578618842.png)</p>
+<h4 id="红黑树的时间复杂度"><a href="#红黑树的时间复杂度" class="headerlink" title="红黑树的时间复杂度"></a>红黑树的时间复杂度</h4><p><strong>定理：一棵含有n个结点的红黑树的高度之多为$2log(n+1)$</strong><br>可以通过证明：高度为h的红黑树，他的包含的内节点的个数至少为$2^{h&#x2F;2}-1$个。</p></div><a class="article-more button is-small is-size-7" href="/2017/06/13/Red-Black-Tree/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-06-13T06:19:15.000Z" title="2017/6/13 14:19:15">2017-06-13</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.952Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Algorithms/">Algorithms</a></span><span class="level-item">20 分钟读完 (大约2959个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/06/13/Offer-Algorithms-Summary/">剑指Offer面试题总结</a></h1><div class="content"><h4 id="面试3-二维数组中的查找"><a href="#面试3-二维数组中的查找" class="headerlink" title="面试3 二维数组中的查找"></a>面试3 二维数组中的查找</h4><p>二维数组中，从左到右，从上到下都是有序的，查找一个数是否存在。<br><strong>思路：</strong></p>
+<ol>
+<li>从右上角向左开始搜索，删除右侧的列，直到遇到比目标值小的数。</li>
+<li>从右上角向下开始搜索，删除上方的行，直到遇到比目标值大的数。<br><strong>代码</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">find</span> <span class="params">(<span class="type">int</span>[][] board,<span class="type">int</span> rows,<span class="type">int</span> columns,<span class="type">int</span> key)</span>&#123;</span><br><span class="line">	<span class="type">boolean</span> <span class="variable">found</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">row</span> <span class="operator">=</span> <span class="number">0</span>, column = columns - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(row &lt; rows &amp;&amp; column &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(board[row][column] == key)&#123;</span><br><span class="line">			found = <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="comment">//右上角-&gt;左搜索，删除右侧列</span></span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(board[row][column] &gt; key)&#123;</span><br><span class="line">			column --;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="comment">//右上角-&gt;下搜索，删除上侧行</span></span><br><span class="line">			row ++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> found;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><a class="article-more button is-small is-size-7" href="/2017/06/13/Offer-Algorithms-Summary/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-03-14T02:47:04.000Z" title="2017/3/14 10:47:04">2017-03-14</time>发表</span><span class="level-item"><time dateTime="2022-05-28T15:06:45.952Z" title="2022/5/28 23:06:45">2022-05-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Algorithms/">Algorithms</a></span><span class="level-item">22 分钟读完 (大约3337个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/03/14/Sort-Algorithms-Summary/">排序算法总结</a></h1><div class="content"><h3 id="比较排序"><a href="#比较排序" class="headerlink" title="比较排序"></a>比较排序</h3><h4 id="选择排序-Selection-Sort"><a href="#选择排序-Selection-Sort" class="headerlink" title="选择排序(Selection Sort)"></a>选择排序(Selection Sort)</h4><p><strong>思路</strong>：<br>　每次选择最小的元素与第i个元素进行交换<br><strong>特点</strong>：</p>
+<ul>
+<li>运行时间与输入无关，即使输入数据主键相同或有序，时间仍和最差相同，时间复杂度为 $N^2$</li>
+<li>数据移动最少，仅需要$N$次交换</li>
+<li>在第i次，会进行1次exchange和 $N-i-1$ 次比较，总的比较次数为$N(N-1)&#x2F;2$次</li>
+<li>该算法为不稳定算法，因为有可能将</li>
+</ul>
+<p><strong>代码</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="comment">//从第i+1个开始寻找最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[min]) min = j;</span><br><span class="line">        &#125;</span><br><span class="line">        SortUtils.exchane(arr, i, min);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><a class="article-more button is-small is-size-7" href="/2017/03/14/Sort-Algorithms-Summary/#more">阅读更多</a></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.jpg" alt="Zhang Fei"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Zhang Fei</p><p class="is-size-6 is-block">Golang Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">10</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/zhangfei614"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/zhangfei614"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/DeepLearning/"><span class="level-start"><span class="level-item">DeepLearning</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Job/"><span class="level-start"><span class="level-item">Job</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Reading/"><span class="level-start"><span class="level-item">Reading</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-05-19T18:52:34.000Z">2022-05-20</time></p><p class="title"><a href="/2022/05/20/mlops/">我眼中的MLOps</a></p><p class="categories"><a href="/categories/MLOps/">MLOps</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-02T05:54:14.000Z">2022-01-02</time></p><p class="title"><a href="/2022/01/02/2022-job-codes/">2022-job-codes</a></p><p class="categories"><a href="/categories/Job/">Job</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-05T15:38:01.000Z">2021-12-05</time></p><p class="title"><a href="/2021/12/05/2022-job-hunting/">2022-job-hunting</a></p><p class="categories"><a href="/categories/Job/">Job</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-25T15:13:48.000Z">2021-08-25</time></p><p class="title"><a href="/2021/08/25/reading-list/">2021课外读书记录</a></p><p class="categories"><a href="/categories/Reading/">Reading</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-16T15:47:10.000Z">2021-08-16</time></p><p class="title"><a href="/2021/08/16/seldon-core-intro/">WIP:seldon-core简介</a></p><p class="categories"><a href="/categories/MLOps/">MLOps</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/06/"><span class="level-start"><span class="level-item">六月 2017</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/03/"><span class="level-start"><span class="level-item">三月 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/2021/"><span class="tag">2021</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Algorithms/"><span class="tag">Algorithms</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DeepLearning/"><span class="tag">DeepLearning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Detection/"><span class="tag">Detection</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Megvii/"><span class="tag">Megvii</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ModelServing/"><span class="tag">ModelServing</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-B-Tree/"><span class="tag">R-B Tree</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Sort/"><span class="tag">Sort</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/k8s/"><span class="tag">k8s</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/avatar.jpg" alt="Fei&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Fei Zhang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
