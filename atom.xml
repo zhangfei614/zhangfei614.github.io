@@ -6,7 +6,7 @@
   <link href="https://zhangfei614.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangfei614.github.io/"/>
-  <updated>2022-06-16T15:46:30.828Z</updated>
+  <updated>2022-06-19T14:42:22.436Z</updated>
   <id>https://zhangfei614.github.io/</id>
   
   <author>
@@ -17,34 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mac-setup</title>
+    <title>Mac装机配置</title>
     <link href="https://zhangfei614.github.io/2022/06/16/mac-setup/"/>
     <id>https://zhangfei614.github.io/2022/06/16/mac-setup/</id>
     <published>2022-06-16T15:21:12.000Z</published>
-    <updated>2022-06-16T15:46:30.828Z</updated>
+    <updated>2022-06-19T14:42:22.436Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Zsh相关配置"><a href="#Zsh相关配置" class="headerlink" title="Zsh相关配置"></a>Zsh相关配置</h3><ol><li>安装iterm2, vscode, brew, oh-my-zsh, tmux, autojump<ul><li>export TERM&#x3D;xterm-256color,HOMEBREW_NO_AUTO_UPDATE&#x3D;1</li></ul></li><li>安装znap，znap-plugins(zsh-completions, zsh-autosuggestions)<ul><li>参考链接：<a href="https://pablo.tools/blog/computers/znap-zsh-plugin-manager/">The Znap ZSH plugin-manager</a></li></ul></li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="Zsh相关配置"><a href="#Zsh相关配置" class="headerlink" title="Zsh相关配置"></a>Zsh相关配置</h3><ol start="0"><li>生成ssh-key: ssh-keygen -t ed25519，并运行ssh-agent,ssh-add</li><li>安装iterm2, vscode, brew, oh-my-zsh, tmux, autojump<ul><li>export TERM&#x3D;xterm-256color,HOMEBREW_NO_AUTO_UPDATE&#x3D;1</li></ul></li><li>安装znap，znap-plugins(zsh-completions, zsh-autosuggestions)<ul><li>参考链接：<a href="https://pablo.tools/blog/computers/znap-zsh-plugin-manager/">The Znap ZSH plugin-manager</a></li></ul></li><li>更新<a href="https://gist.github.com/zhangfei614/d257314e08a49f144cb002b3e6c673aa">.zshrc</a></li></ol><h3 id="Go-k8s-Docker-相关安装"><a href="#Go-k8s-Docker-相关安装" class="headerlink" title="Go, k8s, Docker 相关安装"></a>Go, k8s, Docker 相关安装</h3><ol><li>brew install go, kubectl, minikube</li><li>brew install –casks docker</li><li>set envs in <a href="https://gist.github.com/zhangfei614/d257314e08a49f144cb002b3e6c673aa">.zshrc</a></li></ol><h3 id="其它工具安装"><a href="#其它工具安装" class="headerlink" title="其它工具安装"></a>其它工具安装</h3><ol><li>Clipy， 管理复制粘贴。</li><li>Magent，管理窗口。</li></ol><h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;Zsh相关配置&quot;&gt;&lt;a href=&quot;#Zsh相关配置&quot; class=&quot;headerlink&quot; title=&quot;Zsh相关配置&quot;&gt;&lt;/a&gt;Zsh相关配置&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;安装iterm2, vscode, brew, oh-my-zsh, tmux, aut</summary>
+    <summary type="html">&lt;h3 id=&quot;Zsh相关配置&quot;&gt;&lt;a href=&quot;#Zsh相关配置&quot; class=&quot;headerlink&quot; title=&quot;Zsh相关配置&quot;&gt;&lt;/a&gt;Zsh相关配置&lt;/h3&gt;&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;生成ssh-key: ssh-keygen -t ed25519，并</summary>
       
     
     
     
+    <category term="Tools" scheme="https://zhangfei614.github.io/categories/Tools/"/>
+    
+    
+    <category term="Mac, Tools" scheme="https://zhangfei614.github.io/tags/Mac-Tools/"/>
     
   </entry>
   
   <entry>
-    <title>Nvim配置汤坑</title>
+    <title>Nvim配置趟坑</title>
     <link href="https://zhangfei614.github.io/2022/06/14/nvim-config/"/>
     <id>https://zhangfei614.github.io/2022/06/14/nvim-config/</id>
     <published>2022-06-14T14:04:16.000Z</published>
-    <updated>2022-06-16T15:22:43.257Z</updated>
+    <updated>2022-06-20T15:33:18.656Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="nvim配置流水"><a href="#nvim配置流水" class="headerlink" title="nvim配置流水"></a>nvim配置流水</h3><ol><li>参考<a href="https://juejin.cn/book/7051157342770954277/section/7051157342846451748">learn-neovim-lua</a>。</li><li>快捷键部分，因为Mac上没有Alt，在iterm2中设置左Option-&gt;Esc+。<br><img src="https://i.imgur.com/nGuW7IE.png" alt="图 2"></li><li>将所有plugin注释掉，按需开启。  </li><li>将plugin拉取git仓库的方式从https改为git-ssh的方式。</li><li>注释掉更改plugins.lura，自动更新代码。</li><li>利用brew安装：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># intsall </span></span><br><span class="line">brew install neovim</span><br><span class="line"><span class="comment"># copy config from learn-neovim-lua</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:nshen/learn-neovim-lua.git ~/.config/nvim</span><br></pre></td></tr></table></figure><h3 id="nvim快捷键"><a href="#nvim快捷键" class="headerlink" title="nvim快捷键"></a>nvim快捷键</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="nvim配置流水"><a href="#nvim配置流水" class="headerlink" title="nvim配置流水"></a>nvim配置流水</h3><ol><li>参考<a href="https://juejin.cn/book/7051157342770954277/section/7051157342846451748">learn-neovim-lua</a>。</li><li>快捷键部分，因为Mac上没有Alt，在iterm2中设置左Option-&gt;Esc+。<br><img src="https://i.imgur.com/nGuW7IE.png" alt="图 2"></li><li>将所有plugin注释掉，按需开启；将plugin拉取git仓库的方式从https改为git-ssh的方式；注释掉更改plugins.lura，自动更新代码。</li><li>安装nvim-tree插件： 注意将回车设置成打开文件；安装nerd-font显示各类图标；打开显示dotfile。</li><li>安装bufferline和lualine组件：多标签页打开。</li><li>安装telescopre组件：先brew安装reggrep,fd。</li><li>安装dashboard组件：自定义开始界面和功能。</li><li>安装treesiter组件：语法高亮，语法树选中，代码折叠等功能。</li><li>安装LSP等功能：同时安装npm等工具；</li><li>其他工具：<ul><li>indent-blankline:在段落前加上指示。</li><li></li></ul></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># intsall </span></span><br><span class="line">brew install neovim</span><br><span class="line"><span class="comment"># copy config from learn-neovim-lua</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:zhangfei614/nvim-lua-guide.git ~/.config/nvim</span><br><span class="line"></span><br><span class="line"><span class="comment"># install nd font</span></span><br><span class="line">brew tap homebrew/cask-fonts</span><br><span class="line">brew install --cask font-hack-nerd-font</span><br><span class="line"></span><br><span class="line"><span class="comment"># install</span></span><br></pre></td></tr></table></figure><h3 id="nvim快捷键"><a href="#nvim快捷键" class="headerlink" title="nvim快捷键"></a>nvim快捷键</h3><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://juejin.cn/book/7051157342770954277/section/7058595345445421095">Neovim 配置实战：从0到1打造自己的IDE</a></li></ul>]]></content>
     
     
       
