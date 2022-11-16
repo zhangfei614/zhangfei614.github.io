@@ -6,7 +6,7 @@
   <link href="https://zhangfei614.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangfei614.github.io/"/>
-  <updated>2022-06-13T15:57:58.859Z</updated>
+  <updated>2022-11-16T14:17:13.715Z</updated>
   <id>https://zhangfei614.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac装机配置</title>
+    <link href="https://zhangfei614.github.io/2022/06/16/mac-setup/"/>
+    <id>https://zhangfei614.github.io/2022/06/16/mac-setup/</id>
+    <published>2022-06-16T15:21:12.000Z</published>
+    <updated>2022-11-16T14:17:13.715Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Zsh相关配置"><a href="#Zsh相关配置" class="headerlink" title="Zsh相关配置"></a>Zsh相关配置</h3><ol start="0"><li>生成ssh-key: ssh-keygen -t ed25519，并运行ssh-agent,ssh-add</li><li>安装iterm2, vscode, brew, oh-my-zsh, tmux, autojump<ul><li>export TERM&#x3D;xterm-256color,HOMEBREW_NO_AUTO_UPDATE&#x3D;1</li></ul></li><li>安装znap，znap-plugins(zsh-completions, zsh-autosuggestions)<ul><li>参考链接：<a href="https://pablo.tools/blog/computers/znap-zsh-plugin-manager/">The Znap ZSH plugin-manager</a></li></ul></li><li>更新<a href="https://gist.github.com/zhangfei614/d257314e08a49f144cb002b3e6c673aa">.zshrc</a></li></ol><h3 id="Go-k8s-Docker-相关安装"><a href="#Go-k8s-Docker-相关安装" class="headerlink" title="Go, k8s, Docker 相关安装"></a>Go, k8s, Docker 相关安装</h3><ol><li>brew install go, kubectl, minikube</li><li>brew install –casks docker</li><li>set envs in <a href="https://gist.github.com/zhangfei614/d257314e08a49f144cb002b3e6c673aa">.zshrc</a></li></ol><h3 id="其它工具安装"><a href="#其它工具安装" class="headerlink" title="其它工具安装"></a>其它工具安装</h3><ol><li>Clipy， 管理复制粘贴。</li><li>Magent，管理窗口。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Zsh相关配置&quot;&gt;&lt;a href=&quot;#Zsh相关配置&quot; class=&quot;headerlink&quot; title=&quot;Zsh相关配置&quot;&gt;&lt;/a&gt;Zsh相关配置&lt;/h3&gt;&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;生成ssh-key: ssh-keygen -t ed25519，并</summary>
+      
+    
+    
+    
+    <category term="Tools" scheme="https://zhangfei614.github.io/categories/Tools/"/>
+    
+    
+    <category term="Mac, Tools" scheme="https://zhangfei614.github.io/tags/Mac-Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nvim配置趟坑</title>
+    <link href="https://zhangfei614.github.io/2022/06/14/nvim-config/"/>
+    <id>https://zhangfei614.github.io/2022/06/14/nvim-config/</id>
+    <published>2022-06-14T14:04:16.000Z</published>
+    <updated>2022-11-16T14:23:48.774Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="nvim配置流水"><a href="#nvim配置流水" class="headerlink" title="nvim配置流水"></a>nvim配置流水</h3><ol><li>参考<a href="https://juejin.cn/book/7051157342770954277/section/7051157342846451748">learn-neovim-lua</a>。</li><li>快捷键部分，因为Mac上没有Alt，在iterm2中设置左Option-&gt;Esc+。<br><img src="https://i.imgur.com/nGuW7IE.png" alt="图 2"></li><li>将所有plugin注释掉，按需开启；将plugin拉取git仓库的方式从https改为git-ssh的方式；注释掉更改plugins.lura，自动更新代码。</li><li>安装nvim-tree插件： 注意将回车设置成打开文件；安装nerd-font显示各类图标；打开显示dotfile。</li><li>安装bufferline和lualine组件：多标签页打开。</li><li>安装telescopre组件：先brew安装reggrep,fd。</li><li>安装dashboard组件：自定义开始界面和功能。</li><li>安装treesiter组件：语法高亮，语法树选中，代码折叠等功能。</li><li>安装LSP等功能：同时安装npm等工具；</li><li>其他工具：<ul><li>indent-blankline:在上下文锻炼段落前加上指示。</li></ul></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># intsall </span></span><br><span class="line">brew install neovim</span><br><span class="line"><span class="comment"># copy config from learn-neovim-lua</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:zhangfei614/nvim-lua-guide.git ~/.config/nvim</span><br><span class="line"></span><br><span class="line"><span class="comment"># install nd font</span></span><br><span class="line">brew tap homebrew/cask-fonts</span><br><span class="line">brew install --cask font-hack-nerd-font</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://juejin.cn/book/7051157342770954277/section/7058595345445421095">Neovim 配置实战：从0到1打造自己的IDE</a></li><li><a href="https://github.com/zhangfei614/nvim-lua-guide">ZhangFei’s Nvim</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;nvim配置流水&quot;&gt;&lt;a href=&quot;#nvim配置流水&quot; class=&quot;headerlink&quot; title=&quot;nvim配置流水&quot;&gt;&lt;/a&gt;nvim配置流水&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;参考&lt;a href=&quot;https://juejin.cn/book/705115</summary>
+      
+    
+    
+    
+    <category term="Tools" scheme="https://zhangfei614.github.io/categories/Tools/"/>
+    
+    
+    <category term="nvim, tool, config" scheme="https://zhangfei614.github.io/tags/nvim-tool-config/"/>
+    
+  </entry>
   
   <entry>
     <title>我眼中的MLOps</title>
@@ -98,64 +148,6 @@
     
     <category term="Job" scheme="https://zhangfei614.github.io/categories/Job/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>2022-job-hunting</title>
-    <link href="https://zhangfei614.github.io/2021/12/05/2022-job-hunting/"/>
-    <id>https://zhangfei614.github.io/2021/12/05/2022-job-hunting/</id>
-    <published>2021-12-05T15:38:01.000Z</published>
-    <updated>2022-06-13T02:24:22.098Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="技能汇总"><a href="#技能汇总" class="headerlink" title="技能汇总"></a>技能汇总</h2><h4 id="viper"><a href="#viper" class="headerlink" title="viper"></a>viper</h4><ul><li><a href="https://github.com/spf13/viper">Viper</a>是一个配置阶级方案，包括云原生12-Factors应用。支持各种类型的配置格式，可以解决单个应用程序的配置需求。</li><li><a href="https://juejin.cn/post/6844904051369312264">Go 每日一库之 viper</a><br>常见问题：</li><li>Viper的主要作用？你们的项目是怎么使用Viper的？</li></ul><h4 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h4><ul><li><a href="https://zhuanlan.zhihu.com/p/149886027">etcd调优</a></li><li><a href="https://etcd.io/docs/v3.5/metrics/">etcd metrics</a></li><li><a href="https://etcd.io/docs/v3.5/tuning/">etcd tunning</a></li><li><a href="https://segmentfault.com/a/1190000040582989">etcd的watch机制怎么实现的</a></li></ul><span id="more"></span><h4 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h4><ul><li>protobuf的原理</li></ul><h4 id="go-pprof"><a href="#go-pprof" class="headerlink" title="go pprof"></a>go pprof</h4><ul><li><a href="https://pdf.us/2019/02/18/2772.html">Golang性能分析工具PProf的使用&#x2F;Go GC监控</a></li></ul><h4 id="调度系统"><a href="#调度系统" class="headerlink" title="调度系统"></a>调度系统</h4><ul><li>常见问题：<ul><li>思考调度问题的基本本质方面？<ul><li>资源和任务的匹配的问题；资源方面：拓扑感知、负载感知、QoS保证；任务方面：优先级，抢占，批调度等；上层业务：资源超卖、资源隔离、SLO保证等。</li></ul></li><li>k8s调度器插件化怎么来做？<ul><li>(从零开始入门 K8s：调度器的调度流程和算法介绍)[<a href="https://www.infoq.cn/article/or7crphtdlx1ivhsfngk]">https://www.infoq.cn/article/or7crphtdlx1ivhsfngk]</a></li><li>Informer: 获取pod,node, pv, pvc等状态。</li><li>Policy: 调度器相关的配置。</li><li>Queue: 等待调度的</li></ul></li><li>阿里云相关的调度的演进。<ul><li>ASI调度服务，统一调度器，ACK直接的关系？<ul><li>非容器阶段，仅有调度需求，伏羲&#x2F;T4，简单的隔离。</li><li>容器阶段，sigma基于docker swarm做了改造，深耕容器技术。</li><li>云原生，新一代容器技术，符合k8s生态，将所有在线、离线进程整合。</li><li>调度资源类型：<ul><li>product, batch , Best effort -&gt; 对应Brain++训练任务基本都是batch。</li></ul></li></ul></li></ul></li><li>阿里AI调度相关要点<ul><li>CoScheduling: <ul><li>对于Tensorflow和MPI的作业，同一个Job下要求所有Pod同时启动才能运行。</li><li>实现QueueSort插件, 保证在队列中属于同一个PodGroup的Pod能够排列在一起。</li></ul></li></ul></li></ul></li></ul><h4 id="GPU虚拟化"><a href="#GPU虚拟化" class="headerlink" title="GPU虚拟化"></a>GPU虚拟化</h4><h4 id="k8s基础概念"><a href="#k8s基础概念" class="headerlink" title="k8s基础概念"></a>k8s基础概念</h4><h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><ul><li>golang中map和set的具体实现细节。</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;技能汇总&quot;&gt;&lt;a href=&quot;#技能汇总&quot; class=&quot;headerlink&quot; title=&quot;技能汇总&quot;&gt;&lt;/a&gt;技能汇总&lt;/h2&gt;&lt;h4 id=&quot;viper&quot;&gt;&lt;a href=&quot;#viper&quot; class=&quot;headerlink&quot; title=&quot;viper&quot;&gt;&lt;/a&gt;viper&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/spf13/viper&quot;&gt;Viper&lt;/a&gt;是一个配置阶级方案，包括云原生12-Factors应用。支持各种类型的配置格式，可以解决单个应用程序的配置需求。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://juejin.cn/post/6844904051369312264&quot;&gt;Go 每日一库之 viper&lt;/a&gt;&lt;br&gt;常见问题：&lt;/li&gt;
-&lt;li&gt;Viper的主要作用？你们的项目是怎么使用Viper的？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;etcd&quot;&gt;&lt;a href=&quot;#etcd&quot; class=&quot;headerlink&quot; title=&quot;etcd&quot;&gt;&lt;/a&gt;etcd&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/149886027&quot;&gt;etcd调优&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://etcd.io/docs/v3.5/metrics/&quot;&gt;etcd metrics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://etcd.io/docs/v3.5/tuning/&quot;&gt;etcd tunning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000040582989&quot;&gt;etcd的watch机制怎么实现的&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="Job" scheme="https://zhangfei614.github.io/categories/Job/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021课外读书记录</title>
-    <link href="https://zhangfei614.github.io/2021/08/25/reading-list/"/>
-    <id>https://zhangfei614.github.io/2021/08/25/reading-list/</id>
-    <published>2021-08-25T15:13:48.000Z</published>
-    <updated>2022-06-13T10:11:14.516Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="看"><a href="#看" class="headerlink" title="看"></a>看</h2><h3 id="《影响商业的50本书》"><a href="#《影响商业的50本书》" class="headerlink" title="《影响商业的50本书》"></a>《影响商业的50本书》</h3><h3 id="《务实程序员的修炼之道》"><a href="#《务实程序员的修炼之道》" class="headerlink" title="《务实程序员的修炼之道》"></a>《务实程序员的修炼之道》</h3><h2 id="听"><a href="#听" class="headerlink" title="听"></a>听</h2><h3 id="《乔布斯传》"><a href="#《乔布斯传》" class="headerlink" title="《乔布斯传》"></a>《乔布斯传》</h3><p>07.**</p><ul><li>乔布斯在少年时期就得到父母的全力支持。</li><li>乔布斯喜好禅修并沉迷于素食。</li><li>乔布斯具有现实扭曲力场，创造了伟大的瞬间。</li><li>先后：麦金塔，Next，皮克斯，iPod，iPhone，iPad，iMac，AppleStore</li><li>对软硬一体，科学与艺术融合等持续追逐。</li><li>投入产品的精力和偏执无语伦比。</li></ul><span id="more"></span><h3 id="《人类群星闪耀时》"><a href="#《人类群星闪耀时》" class="headerlink" title="《人类群星闪耀时》"></a>《人类群星闪耀时》</h3><p>08.24</p><ul><li>发现太平洋：<ul><li>西班牙人巴尔沃亚，从逃犯到发现太平洋的探险家。</li><li>发现太平洋，占领美洲，为西班牙积累了大量白银。</li><li>西班牙以菲律宾殖民地为跳板，大量白银流入明朝。</li><li>明朝晚期物价飞涨，通货膨胀。</li><li>裁减开支，李自成农民起义，导致灭亡。</li></ul></li></ul><p>08.25</p><ul><li>拜占庭帝国消亡：<ul><li>1453年，攻占太平洋。</li><li>老无所依，没有老年人的世界，历史总会抛弃年久的国家。</li><li>西方文明的碉堡，深刻影响东西方文明进程。</li><li>影响西欧放弃路权帝国，转向海权帝国。</li><li>大明王朝抵抗主了异族的进攻，但却没有深刻的影响。</li></ul></li></ul><p>08.26</p><ul><li>亨德尔的复活：<ul><li>中风和事业落魄重新恢复创作，创造了《弥赛亚》</li></ul></li></ul><p>08.27</p><ul><li>拿破仑滑铁卢<ul><li>1815年左右，拿破仑亲征普鲁士和英国军队。</li><li>格鲁希固执王命，没有追击成果普鲁士军队，并且未去增援。</li><li>拿破仑战役失败，导致欧洲陷入列强纷争，大英帝国崛起。</li><li>法兰西仍是传统的路权国家，英法相争，大清有喘息时间。</li></ul></li></ul><p>08.30</p><ul><li>大西洋第一封电报<ul><li>赛勒斯·韦斯特·菲尔德（Cyrus West Field, 1819—1892），美国实业家，以经营造纸业起家，后集资铺设第一条横越大西洋、连接欧美两洲的海底电报电缆。经过两次失败，1858年7月28日在大西洋中部分两头开始进行第三次铺设工作，终获成功。8月16日晚，英国维多利亚女王致美国总统的贺电通过海底电缆传到纽约。次日，欧美两洲沉浸在一片狂欢之中。但是，由于当时电讯技术其他方面条件的限制，如发报机功率小等，致使电缆虽然接通，电传讯号却不久又归于沉寂。于是群情由狂欢而转为对菲尔德的愤怒责难，谣言四起，纷纷传说菲尔德本来就是一个骗子……然而，事隔六年余，不屈不挠的菲尔德又于1865年重新继续这项事业，并于1866年取得最后胜利——通过海底电缆从美洲向欧洲传来清晰的电报讯号。</li></ul></li><li>黄金国<ul><li>约翰·奥古斯特·苏特尔（Johann August Suter 或John Augustus Sutter），加利福尼亚的拓荒先驱，1803年生于瑞士，1834年赴美国，1835年和1836年曾到过美国新墨西哥州首府圣菲经商，1838年迁居密苏里州的俄勒冈，1839年在圣弗兰西斯科湾登陆，在今天的加利福尼亚首府萨克拉门托的地址上建立殖民地，1841年成为墨西哥公民，从阿尔瓦拉多总督处获得大片土地。1848年1月24日，在所有权属于他的土地上发现了黄金，从而引起疯狂的淘金热潮，他手下的人纷纷不辞而别，前来淘金的人盗走了他的成群牛羊，擅自占领他的土地，致使他于1852年宣告破产，1864至1878年加利福尼亚州政府给他每月250美元养老金，1880年死于心脏病猝发。</li><li>黄金国的发现，正直国门大开，大量华仔被贩卖到旧金山，受到不公正待遇。</li><li>西部的高速发展：自然环境优越，资本积累雄厚，大量移门冒险者。</li></ul></li></ul><p>08.31</p><ul><li>征战南极<ul><li>今天，设立在南极南纬90°的科学实验站取名为阿蒙森—斯科特站，这是为纪念最早到达南极的两名探险家：挪威人阿蒙森和英国人斯科特。当年，他们各自率领一支探险队，为使自己成为世界上第一批到达南极的人而进行激烈的竞争。结果是阿蒙森队捷足先登，于1911年12月14日到达南极，斯科特队则于1912年1月18日才到达，比阿蒙森队晚了将近五个星期。最后，阿蒙森队凯旋班师，而斯科特等五名最后冲击南极的人却永眠在茫茫的冰雪之中。研究南极探险史的科学家们指出：阿蒙森的胜利和斯科特的惨剧，并不在于他们两人的计划周密与否，而是在于前者依据丰富的实践经验制订计划，后者凭推理的设想制订计划。阿蒙森断定，人的体力和西伯利亚矮种马都无法抗御南极的严寒，唯有北极的爱斯基摩狗才能在极圈拉着雪橇前进，于是他用20条膘肥体壮的狗胜利完成了到南极去的往返路程。而斯科特则认为，狗的胃口太大，南极没有可猎的动物来补充狗的口粮（事实并非如此，狗可以和人吃同类的食物），于是决定用人力拉着雪橇长途跋涉，终于使自己和四名伙伴在从南极返程时因极圈寒季的突然提前到来，在饥寒交迫之中死于体力不支。</li><li>斯科特的胜利的失败者：<ul><li>遵守规则，愿意做第一的见证。</li><li>不抛弃队友，无私歌颂朋友的勇气。</li><li>忠于国家，讲国家的荣誉铭刻于心。</li><li>勇于冒险，用人的意志来客服自然。</li></ul></li></ul></li><li>玛丽恩巴德悲歌<ul><li>歌德立志要将年轻的姑娘乌尔丽克变为自己的新娘，离开后写下了晚年爱情诗篇《玛丽恩巴德悲歌》。</li><li>歌德患病后，是这个悲歌唤醒自己，并走向平静，开始不懈的创作。</li><li>悲歌（Elegie）一词，本是源于古希腊的一种诗体，既可用于哀歌、挽歌，亦可用于战争诗、政治诗、教喻诗、爱情诗，如歌德的《罗马悲歌》，并非是哀悼罗马之作，乃是采用古代格调写的爱情诗篇。</li></ul></li></ul><p>09.07</p><ul><li>逃向上苍<ul><li>1910年10月末，风烛残年的托尔斯泰在经过了几场极富戏剧性的冲突之后，终于毅然决然悄悄离家出走。10月28日清晨，一辆载着托尔斯泰的马车在黎明前的黑夜中远远驶去，前面是茫茫苍天。陪同他的只有一个挚友兼医生马柯维茨基，知道他去向的只有他的小女儿。但是，这位82岁的老人已经不起旅途的劳顿。三天之后，他因患肺炎不得不在阿斯塔波沃火车站下车，暂住在站长的公务房间里，经过几天的重病之后，终于在11月7日清晨与世长辞。</li><li>托尔斯泰的矛盾<ul><li>自己的主张和当时革命的矛盾。</li><li>自己的身份和向往世界的矛盾。</li><li>命运和抉择的矛盾。</li></ul></li></ul></li><li>封闭的列车<ul><li>自1907年起，列宁第二次流亡国外，侨居日内瓦、巴黎、伯尔尼等地。1916年初列宁从伯尔尼迁到苏黎世，和克鲁普斯卡娅一起寄居在修鞋匠卡墨列尔家里。1917年3月中旬，列宁获悉彼得格勒工人、士兵武装起义胜利的消息，但政权落到临时政府手里，出现了双重政权并存的局面。正当俄国革命面临这样紧急关头的时刻，身在瑞士的列宁迫不及待地渴望着尽快返同祖国，列宁返回俄国的路线只有两条：一是通过德国，经瑞典、芬兰归来，但德国当时是俄国的交战国；二是取道法国，然后渡海到英国，再返回俄国，但英法当时是俄国的协约国。列宁深知，英国是无论如何不会借道给他这样一个坚决反对帝国主义战争的人的。最后，他利用帝国主义国家之间的矛盾，以交换拘留在俄国的德国战俘为条件，乘坐一节铅封的车厢，取道德国而归。列宁此举势必会招来许多非议，但他以革命利益为重，把自己的荣辱毁誉置之度外。1917年4月16日晚上11点10分，列宁转从芬兰乘火车抵达当时俄国的首都彼得格勒，以后不到七个月的时间，伟大的十月社会主义革命就爆发了。<ul><li>列宁是十月革命的核心。</li><li>敌人的敌人就是朋友。</li></ul></li></ul></li><li>威尔逊的失败<ul><li>威尔逊事业的顶峰是他亲自率领美国代表团远渡重洋，参加1919年的巴黎和会。这在当时的交通条件和美国政治传统下，实属罕见。威尔逊提出“十四点原则”作为缔结《巴黎和约》的基础，并提出建立国际联盟的设想，以保障人类的永久和平。</li><li>威尔逊的推动富有远见的，但并没能避免战胜国对战败国的剥削。</li><li>巴黎和会的妥协导致了欧洲体系的不稳定，进而引起了第二次世界大战。</li></ul></li></ul><h3 id="《激荡三十年》"><a href="#《激荡三十年》" class="headerlink" title="《激荡三十年》"></a>《激荡三十年》</h3><ul><li>很多当时叱咤一方的民营企业，当时都是或多或少在国有资产输上，完成了灰色的最原始的资本积累。</li><li>现在的机会虽远没有那么多，但只要有勇气改变世界，十次失败总有成功的时候。</li><li>积累原始资本十分必要，很多时候就要尝试被人没做过的事情，才能把原始资本积累成功。</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;看&quot;&gt;&lt;a href=&quot;#看&quot; class=&quot;headerlink&quot; title=&quot;看&quot;&gt;&lt;/a&gt;看&lt;/h2&gt;&lt;h3 id=&quot;《影响商业的50本书》&quot;&gt;&lt;a href=&quot;#《影响商业的50本书》&quot; class=&quot;headerlink&quot; title=&quot;《影响商业的50本书》&quot;&gt;&lt;/a&gt;《影响商业的50本书》&lt;/h3&gt;&lt;h3 id=&quot;《务实程序员的修炼之道》&quot;&gt;&lt;a href=&quot;#《务实程序员的修炼之道》&quot; class=&quot;headerlink&quot; title=&quot;《务实程序员的修炼之道》&quot;&gt;&lt;/a&gt;《务实程序员的修炼之道》&lt;/h3&gt;&lt;h2 id=&quot;听&quot;&gt;&lt;a href=&quot;#听&quot; class=&quot;headerlink&quot; title=&quot;听&quot;&gt;&lt;/a&gt;听&lt;/h2&gt;&lt;h3 id=&quot;《乔布斯传》&quot;&gt;&lt;a href=&quot;#《乔布斯传》&quot; class=&quot;headerlink&quot; title=&quot;《乔布斯传》&quot;&gt;&lt;/a&gt;《乔布斯传》&lt;/h3&gt;&lt;p&gt;07.**&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;乔布斯在少年时期就得到父母的全力支持。&lt;/li&gt;
-&lt;li&gt;乔布斯喜好禅修并沉迷于素食。&lt;/li&gt;
-&lt;li&gt;乔布斯具有现实扭曲力场，创造了伟大的瞬间。&lt;/li&gt;
-&lt;li&gt;先后：麦金塔，Next，皮克斯，iPod，iPhone，iPad，iMac，AppleStore&lt;/li&gt;
-&lt;li&gt;对软硬一体，科学与艺术融合等持续追逐。&lt;/li&gt;
-&lt;li&gt;投入产品的精力和偏执无语伦比。&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="Reading" scheme="https://zhangfei614.github.io/categories/Reading/"/>
-    
-    
-    <category term="2021" scheme="https://zhangfei614.github.io/tags/2021/"/>
     
   </entry>
   
